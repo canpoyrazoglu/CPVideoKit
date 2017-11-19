@@ -10,9 +10,10 @@
 		36B91AA91FBF5C68003FC791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B91AA81FBF5C68003FC791 /* AppDelegate.m */; };
 		36B91AAC1FBF5C68003FC791 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B91AAB1FBF5C68003FC791 /* ViewController.m */; };
 		36B91AAF1FBF5C68003FC791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B91AAD1FBF5C68003FC791 /* Main.storyboard */; };
-		36B91AB11FBF5C68003FC791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B91AB01FBF5C68003FC791 /* Assets.xcassets */; };
-		36B91AB41FBF5C68003FC791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B91AB21FBF5C68003FC791 /* LaunchScreen.storyboard */; };
 		36B91AB71FBF5C69003FC791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B91AB61FBF5C69003FC791 /* main.m */; };
+		36B91AC01FBF792E003FC791 /* CPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B91ABF1FBF792E003FC791 /* CPVideo.m */; };
+		36B91AC31FBF7D42003FC791 /* CPVideoExportOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B91AC21FBF7D42003FC791 /* CPVideoExportOptions.m */; };
+		36B91AC81FC191CE003FC791 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B91AC71FC191CE003FC791 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +23,13 @@
 		36B91AAA1FBF5C68003FC791 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		36B91AAB1FBF5C68003FC791 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		36B91AAE1FBF5C68003FC791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		36B91AB01FBF5C68003FC791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		36B91AB31FBF5C68003FC791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36B91AB51FBF5C69003FC791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B91AB61FBF5C69003FC791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		36B91ABE1FBF792E003FC791 /* CPVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPVideo.h; sourceTree = "<group>"; };
+		36B91ABF1FBF792E003FC791 /* CPVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPVideo.m; sourceTree = "<group>"; };
+		36B91AC11FBF7D42003FC791 /* CPVideoExportOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPVideoExportOptions.h; sourceTree = "<group>"; };
+		36B91AC21FBF7D42003FC791 /* CPVideoExportOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPVideoExportOptions.m; sourceTree = "<group>"; };
+		36B91AC71FC191CE003FC791 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +62,28 @@
 		36B91AA61FBF5C68003FC791 /* CPVideoKit */ = {
 			isa = PBXGroup;
 			children = (
+				36B91ABD1FBF790C003FC791 /* Classes */,
 				36B91AA71FBF5C68003FC791 /* AppDelegate.h */,
 				36B91AA81FBF5C68003FC791 /* AppDelegate.m */,
 				36B91AAA1FBF5C68003FC791 /* ViewController.h */,
 				36B91AAB1FBF5C68003FC791 /* ViewController.m */,
 				36B91AAD1FBF5C68003FC791 /* Main.storyboard */,
-				36B91AB01FBF5C68003FC791 /* Assets.xcassets */,
-				36B91AB21FBF5C68003FC791 /* LaunchScreen.storyboard */,
 				36B91AB51FBF5C69003FC791 /* Info.plist */,
 				36B91AB61FBF5C69003FC791 /* main.m */,
+				36B91AC71FC191CE003FC791 /* Launch Screen.storyboard */,
 			);
 			path = CPVideoKit;
+			sourceTree = "<group>";
+		};
+		36B91ABD1FBF790C003FC791 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				36B91ABE1FBF792E003FC791 /* CPVideo.h */,
+				36B91ABF1FBF792E003FC791 /* CPVideo.m */,
+				36B91AC11FBF7D42003FC791 /* CPVideoExportOptions.h */,
+				36B91AC21FBF7D42003FC791 /* CPVideoExportOptions.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,8 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36B91AB41FBF5C68003FC791 /* LaunchScreen.storyboard in Resources */,
-				36B91AB11FBF5C68003FC791 /* Assets.xcassets in Resources */,
+				36B91AC81FC191CE003FC791 /* Launch Screen.storyboard in Resources */,
 				36B91AAF1FBF5C68003FC791 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +158,8 @@
 			files = (
 				36B91AAC1FBF5C68003FC791 /* ViewController.m in Sources */,
 				36B91AB71FBF5C69003FC791 /* main.m in Sources */,
+				36B91AC31FBF7D42003FC791 /* CPVideoExportOptions.m in Sources */,
+				36B91AC01FBF792E003FC791 /* CPVideo.m in Sources */,
 				36B91AA91FBF5C68003FC791 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,14 +173,6 @@
 				36B91AAE1FBF5C68003FC791 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		36B91AB21FBF5C68003FC791 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36B91AB31FBF5C68003FC791 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -277,10 +285,10 @@
 		36B91ABB1FBF5C69003FC791 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4T54K95HB5;
 				INFOPLIST_FILE = CPVideoKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.canpoyrazoglu.CPVideoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,10 +299,10 @@
 		36B91ABC1FBF5C69003FC791 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4T54K95HB5;
 				INFOPLIST_FILE = CPVideoKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.canpoyrazoglu.CPVideoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

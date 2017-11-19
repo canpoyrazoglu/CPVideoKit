@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,128 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="him-cf-obq" userLabel="Crop Area">
+                                <rect key="frame" x="20" y="143.5" width="335" height="300"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="CBL-dW-NaK"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="nce-q3-PrW">
+                                <rect key="frame" x="18" y="617" width="215" height="31"/>
+                                <connections>
+                                    <action selector="didChangeAspectRatioSliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="tn6-r7-JRi"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGj-qB-UM8" userLabel="Video View">
+                                <rect key="frame" x="45" y="144" width="285" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.10232277684563758" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aspect ratio: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ott-h2-cwX">
+                                <rect key="frame" x="20" y="594.5" width="81.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video that intersects the dark gray area will be exported. Pan and pinch to move video." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="lgF-u7-AFd">
+                                <rect key="frame" x="20" y="20" width="335" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4A-8A-Uer">
+                                <rect key="frame" x="241" y="613" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="A6z-bb-l8I"/>
+                                </constraints>
+                                <state key="normal" title="Export">
+                                    <color key="titleColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <state key="disabled" title="Exporting...">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapExportButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oPO-ow-PDC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izj-Pn-D12">
+                                <rect key="frame" x="20" y="78" width="53" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 1920x1080" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T7I-HY-MFE">
+                                <rect key="frame" x="81" y="70" width="108.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nce-q3-PrW" secondAttribute="bottom" constant="20" id="1Gr-FO-gnX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lgF-u7-AFd" secondAttribute="trailing" constant="20" id="596-kG-oHX"/>
+                            <constraint firstItem="him-cf-obq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="5sm-Xq-wLp"/>
+                            <constraint firstItem="lgF-u7-AFd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Kk-tb-fSE"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ott-h2-cwX" secondAttribute="trailing" constant="20" symbolic="YES" id="6QB-9H-UuA"/>
+                            <constraint firstItem="him-cf-obq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9DK-dZ-ujH"/>
+                            <constraint firstItem="Izj-Pn-D12" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Gs3-Op-Vyu"/>
+                            <constraint firstItem="T7I-HY-MFE" firstAttribute="baseline" secondItem="Izj-Pn-D12" secondAttribute="baseline" id="IId-ck-GGJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O4A-8A-Uer" secondAttribute="bottom" constant="20" id="J3j-Kk-oCj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O4A-8A-Uer" secondAttribute="trailing" constant="4" id="Rtb-Br-Kja"/>
+                            <constraint firstItem="nce-q3-PrW" firstAttribute="top" secondItem="Ott-h2-cwX" secondAttribute="bottom" constant="8" id="SKh-Cw-lnx"/>
+                            <constraint firstItem="Ott-h2-cwX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aUo-BM-afM"/>
+                            <constraint firstItem="T7I-HY-MFE" firstAttribute="leading" secondItem="Izj-Pn-D12" secondAttribute="trailing" constant="8" symbolic="YES" id="abL-ed-kD4"/>
+                            <constraint firstItem="lgF-u7-AFd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ejb-Aw-25A"/>
+                            <constraint firstItem="O4A-8A-Uer" firstAttribute="leading" secondItem="nce-q3-PrW" secondAttribute="trailing" constant="10" id="g84-Ie-9bZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nce-q3-PrW" secondAttribute="trailing" priority="999" constant="120" id="kD5-gD-xHD"/>
+                            <constraint firstItem="nce-q3-PrW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lD0-rF-UhP"/>
+                            <constraint firstItem="Izj-Pn-D12" firstAttribute="top" secondItem="lgF-u7-AFd" secondAttribute="bottom" constant="15" id="qaQ-E3-AVp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="him-cf-obq" secondAttribute="trailing" constant="20" id="qjn-pr-mrw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T7I-HY-MFE" secondAttribute="trailing" constant="185.5" id="udX-Af-SgD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7n3-vs-B6o" appends="YES" id="1mp-13-6u9"/>
+                            <outletCollection property="gestureRecognizers" destination="2XH-lY-x4d" appends="YES" id="SNJ-oO-gZH"/>
+                            <outletCollection property="gestureRecognizers" destination="f8t-wo-9tM" appends="YES" id="szb-EV-T79"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="aspectRatioLabel" destination="Ott-h2-cwX" id="OxY-dh-4GX"/>
+                        <outlet property="cropArea" destination="him-cf-obq" id="C7q-3r-wgA"/>
+                        <outlet property="cropAreaHeightConstraint" destination="CBL-dW-NaK" id="kp1-r9-J0p"/>
+                        <outlet property="exportButton" destination="O4A-8A-Uer" id="lZx-WZ-hjf"/>
+                        <outlet property="maxSizeField" destination="T7I-HY-MFE" id="tWY-zX-3hp"/>
+                        <outlet property="videoView" destination="vGj-qB-UM8" id="RqL-Rt-1Pf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7n3-vs-B6o">
+                    <connections>
+                        <action selector="didPanVideo:" destination="BYZ-38-t0r" id="cRw-ax-OxA"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="2XH-lY-x4d">
+                    <connections>
+                        <action selector="didPinchVideo:" destination="BYZ-38-t0r" id="tD4-DL-iMh"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <tapGestureRecognizer id="f8t-wo-9tM">
+                    <connections>
+                        <action selector="didTapBackground:" destination="BYZ-38-t0r" id="smG-Cf-W2O"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
