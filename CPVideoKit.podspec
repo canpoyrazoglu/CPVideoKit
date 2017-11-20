@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/canpoyrazoglu/CPVideoKit.git", :tag => s.version.to_s }
 
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "CPVideoKit/Classes/**/*.{h,m}"
 
 end
