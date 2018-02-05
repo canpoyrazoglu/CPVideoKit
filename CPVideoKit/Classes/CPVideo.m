@@ -124,23 +124,25 @@ static BOOL diagnostics;
         matrix = CGAffineTransformConcat(matrix, scaleTransform);
     }
     exportSize = CGSizeMake(exportSize.width * scale, exportSize.height * scale);
+    exportSize = CGSizeMake(roundf(exportSize.width), roundf(exportSize.height));
     //lock the export size to a multiple of 4 to avoid green banding at right and bottom
-    double widthMod4 = fmod(exportSize.width, 4);
-    if(widthMod4){
-        if(widthMod4 > 2){
-            exportSize.width += widthMod4;
+    double widthMod16 = fmod(exportSize.width, 16);
+    if(widthMod16){
+        if(widthMod16 > 12){
+            exportSize.width += widthMod16;
         }else{
-            exportSize.width -= widthMod4;
+            exportSize.width -= widthMod16;
         }
     }
-    double heightMod4 = fmod(exportSize.height, 4);
-    if(heightMod4){
-        if(heightMod4 > 2){
-            exportSize.height += heightMod4;
+    double heightMod16 = fmod(exportSize.height, 16);
+    if(heightMod16){
+        if(heightMod16 > 12){
+            exportSize.height += heightMod16;
         }else{
-            exportSize.height -= heightMod4;
+            exportSize.height -= heightMod16;
         }
     }
+    exportSize = CGSizeMake((int)exportSize.width, (int)exportSize.height);
     NSAssert(exportSize.width && exportSize.height, @"Exported video size must be positive after applying transformations.");
     if(diagnostics){
         NSLog(@"Scaled export size: %dx%d", (int)exportSize.width, (int)exportSize.height);
