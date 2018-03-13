@@ -6,6 +6,8 @@
 //  Copyright © 2017 Can Poyrazoglu. All rights reserved.
 //
 
+@import ImageIO;
+
 #import "CPVideoExportOptions.h"
 
 @implementation CPVideoExportOptions
@@ -17,7 +19,14 @@
         self.fileType = AVFileTypeQuickTimeMovie;
         self.shouldOptimizeForNetworkUse = YES;
         if(@available(iOS 11, *)){
-            self.exportPresetQuality = AVAssetExportPresetHEVCHighestQuality;
+            NSArray<NSString *> *supportedImageDestinationTypes = CFBridgingRelease(
+                                                           CGImageDestinationCopyTypeIdentifiers());
+            BOOL supportsHEVC = [supportedImageDestinationTypes containsObject:AVFileTypeHEIC];
+            if(supportsHEVC){
+                self.exportPresetQuality = AVAssetExportPresetHEVCHighestQuality;
+            }else{
+                self.exportPresetQuality = AVAssetExportPresetHighestQuality;
+            }
         }else{
             self.exportPresetQuality = AVAssetExportPresetHighestQuality;
         }

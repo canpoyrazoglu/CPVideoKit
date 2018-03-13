@@ -29,7 +29,7 @@
 /** Should the video be optimized for streaming by writing metadata required to start playback in front of the file. Default is @c YES. */
 @property BOOL shouldOptimizeForNetworkUse;
 
-/** Quality preset for exporting the video. Default is @c AVAssetExportPresetHighestQuality on versions prior to iOS 11. On iOS 11 and above which supports HEVC, the default is @c AVAssetExportPresetHEVCHighestQuality. */
+/** Quality preset for exporting the video. Default is @c AVAssetExportPresetHighestQuality on versions prior to iOS 11. On iPhone 7 and later devices running iOS 11 and above which supports HEVC, the default is @c AVAssetExportPresetHEVCHighestQuality. */
 @property NSString *exportPresetQuality;
 
 @end
